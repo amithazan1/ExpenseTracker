@@ -24,6 +24,7 @@
     "graphql-passport": "^0.6.8",
     "graphql-ws": "^5.16.0",
     "mongoose": "^8.9.3",
+    "overload-protection": "^1.2.3",
     "passport": "^0.7.0"
   },
   "devDependencies": {
