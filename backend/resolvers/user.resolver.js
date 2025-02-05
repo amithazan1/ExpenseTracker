@@ -79,6 +79,7 @@ const userResolver = {
       try {
         // Destructure the input object to get the username and password from the login request
         const { username, password } = input;
+        if (!username || !password) throw new Error("All fields are required");
 
         // Authenticate the user using the 'graphql-local' strategy (which uses the username and password)
         // The 'context.authenticate' function will validate the credentials against the database

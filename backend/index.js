@@ -87,8 +87,8 @@ app.use(
 );
 
 // Start the HTTP server and listen on port 4000
-await new Promise((resolve) => httpServer.listen({ port: 4001 }, resolve));
+await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
 await connectDB();
 
 // Log a message indicating the server is ready
-console.log(`🚀 Server ready at http://localhost:4001/`);
+console.log(`🚀 Server ready at http://localhost:4000/`);
