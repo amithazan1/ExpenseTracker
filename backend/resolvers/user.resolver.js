@@ -1,3 +1,4 @@
+import { clear } from "console";
 import { users } from "../dummyData/data.js";
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";

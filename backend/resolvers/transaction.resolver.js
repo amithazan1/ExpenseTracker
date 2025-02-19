@@ -1,10 +1,11 @@
 import { users } from "../dummyData/data.js";
 import Transaction from "../models/transaction.model.js";
+
 const transactionResolver = {
   Query: {
     transactions: async (_, __, context) => {
       try {
-        if (context.getUser()) {
+        if (!context.getUser()) {
           throw new Error("Unauthorized");
         }
         const userId = await context.getUser()._id;
@@ -17,11 +18,12 @@ const transactionResolver = {
     },
     transaction: async (_, { transactionId }, context) => {
       try {
-        if (context.getUser()) {
+        if (!context.getUser()) {
           throw new Error("Unauthorized");
         }
         const userId = await context.getUser()._id;
-        const transaction = await Transaction.findById({ transactionId });
+        const transaction = await Transaction.findById(transactionId);
+
         return transaction;
       } catch (error) {
         console.error("Error getting transaction:", error);
@@ -30,7 +32,7 @@ const transactionResolver = {
     },
   },
   Mutation: {
-    createTranscacion: async (_, { input }, context) => {
+    createTransaction: async (_, { input }, context) => {
       try {
         const newTransaction = new Transaction({
           ...input,

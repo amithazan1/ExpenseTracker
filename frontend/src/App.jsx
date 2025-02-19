@@ -29,7 +29,7 @@ function App() {
           element={!data?.authUser ? <SignUpPage /> : <Navigate to="/" />}
         />
         <Route
-          path="/transaction:id"
+          path="/transaction/:id"
           element={
             data?.authUser ? <TransactionPage /> : <Navigate to="/login" />
           }
